@@ -26,7 +26,9 @@ interface AndNode extends IdNodeBase<"AndNode">, NodeContainerBase {}
 
 interface OrNode extends IdNodeBase<"OrNode">, NodeContainerBase {}
 
-interface GroupNode extends IdNodeBase<"GroupNode">, NodeContainerBase {}
+interface GroupNode extends IdNodeBase<"GroupNode"> {
+  node: IdNodeBase<unknown>;
+}
 
 interface EqualsNode extends ColumnNodeBase, SingleQueryNodeBase, IdNodeBase<"EqualsNode"> {}
 

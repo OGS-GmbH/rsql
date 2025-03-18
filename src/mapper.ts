@@ -1,68 +1,92 @@
-import { AndNode, EqualsNode, GreaterNode, GreaterOrEqualNode, GroupNode, IdNodeBase, InNode, IsNullNode, LessNode, LessOrEqualNode, LikeNode, NodeContainerBase, NotEqualsNode, NotLikeNode, NullNode, OrNode, OutNode, QueryNode, RangeNode } from "./nodes";
-import { SEPARATOR } from "./operators";
+import { AndNode, EqualsNode, GreaterNode, GreaterOrEqualNode, GroupNode, IdNodeBase, InNode, IsNullNode, LessNode, LessOrEqualNode, LikeNode, NotEqualsNode, NotLikeNode, NullNode, OrNode, OutNode, QueryNode, RangeNode } from "./nodes";
+import { AND, OR, SEPARATOR } from "./operators";
 
-function mapEqualsNode(node: EqualsNode): string {
-  return `${node.column}${SEPARATOR.EQUALS}${node.query}`;
-}
-
-function mapNotEqualsNode(node: NotEqualsNode): string {
-  return `${node.column}${SEPARATOR.NOT_EQUALS}${node.query}`;
-}
-
-function mapQueryNode(node: QueryNode): string {
-  return `${node.column}${SEPARATOR.QUERY}'${node.query}'}`;
-}
-
-function mapLikeNode(node: LikeNode): string {
-  return `${node.column}${SEPARATOR.LIKE}${node.query}`;
-}
-
-function mapNotLikeNode(node: NotLikeNode): string {
-  return `${node.column}${SEPARATOR.NOT_LIKE}${node.query}`;
-}
-
-function mapInNode(node: InNode): string {
-  return `${node.column}${SEPARATOR.IN}(${node.query.join(", ")})`;
-}
-
-function mapOutNode(node: OutNode): string {
-  return `${node.column}${SEPARATOR.OUT}(${node.query.join(", ")})`;
-}
-
-function mapRangeNode(node: RangeNode): string {
-  return `${node.column}${SEPARATOR.RANGE}(${node.queryFrom},${node.queryTo})`;
-}
-
-function mapLessNode(node: LessNode): string {
-  return `${node.column}${SEPARATOR.LESS}${node.query}`;
-}
-
-function mapLessOrEqualNode(node: LessOrEqualNode): string {
-  return `${node.column}${SEPARATOR.LESS_OR_EQUAL}${node.query}`;
-}
-
-function mapGreaterNode(node: GreaterNode): string {
-  return `${node.column}${SEPARATOR.GREATER}${node.query}`;
-}
-
-function mapGreaterOrEqualNode(node: GreaterOrEqualNode): string {
-  return `${node.column}${SEPARATOR.GREATER_OR_EQUAL}${node.query}`;
-}
-
-function mapNullNode(node: NullNode): string {
-  return `${node.column}${SEPARATOR.NULL}${node.query}`;
-}
-
-function mapIsNullNode(node: IsNullNode): string {
-  return `${node.column}${SEPARATOR.IS_NULL}${node.query}`;
-}
-
-function mapNodeContainer(astLike: IdNodeBase<unknown>): string {
+function mapNode(astLike: IdNodeBase<unknown>): string {
   let queryString: string = "";
 
-  switch(astLike.id) {
+  switch (astLike.id) {
     case "AndNode": {
-      queryString += mapAll((astLike as AndNode).nodes)
+      queryString += (astLike as AndNode).nodes.map((astLikeNode: IdNodeBase<unknown>) => mapNode(astLikeNode)).join(AND);
+      break;
+    }
+
+    case "OrNode": {
+      queryString += (astLike as OrNode).nodes.map((astLikeNode: IdNodeBase<unknown>) => mapNode(astLikeNode)).join(OR);
+      break;
+    }
+
+    case "GroupNode": {
+      queryString += `(${mapNode((astLike as GroupNode).node)})`;
+      break;
+    }
+
+    case "EqualsNode": {
+      queryString += `${(astLike as EqualsNode).column}${SEPARATOR.EQUALS}${(astLike as EqualsNode).query}`;
+      break;
+    }
+
+    case "NotEqualsNode": {
+      queryString += `${(astLike as NotEqualsNode).column}${SEPARATOR.NOT_EQUALS}${(astLike as NotEqualsNode).query}`;
+      break;
+    }
+
+    case "QueryNode": {
+      queryString += `${(astLike as QueryNode).column}${SEPARATOR.QUERY}'${(astLike as QueryNode).query}'}`;
+      break;
+    }
+
+    case "LikeNode": {
+      queryString += `${(astLike as LikeNode).column}${SEPARATOR.LIKE}${(astLike as LikeNode).query}`;
+      break;
+    }
+
+    case "NotLikeNode": {
+      queryString += `${(astLike as NotLikeNode).column}${SEPARATOR.NOT_LIKE}${(astLike as NotLikeNode).query}`;
+      break;
+    }
+
+    case "InNode": {
+      queryString += `${(astLike as InNode).column}${SEPARATOR.IN}(${(astLike as InNode).query.join(", ")})`;
+      break;
+    }
+
+    case "OutNode": {
+      queryString += `${(astLike as OutNode).column}${SEPARATOR.OUT}(${(astLike as OutNode).query.join(", ")})`;
+      break;
+    }
+
+    case "RangeNode": {
+      queryString += `${(astLike as RangeNode).column}${SEPARATOR.RANGE}(${(astLike as RangeNode).queryFrom},${(astLike as RangeNode).queryTo})`;
+      break;
+    }
+
+    case "LessNode": {
+      queryString += `${(astLike as LessNode).column}${SEPARATOR.LESS}${(astLike as LessNode).query}`;
+      break;
+    }
+
+    case "LessOrEqualNode": {
+      queryString += `${(astLike as LessOrEqualNode).column}${SEPARATOR.LESS_OR_EQUAL}${(astLike as LessOrEqualNode).query}`;
+      break;
+    }
+
+    case "GreaterNode": {
+      queryString += `${(astLike as GreaterNode).column}${SEPARATOR.GREATER}${(astLike as GreaterNode).query}`;
+      break;
+    }
+
+    case "GreaterOrEqualNode": {
+      queryString += `${(astLike as GreaterOrEqualNode).column}${SEPARATOR.GREATER_OR_EQUAL}${(astLike as GreaterOrEqualNode).query}`;
+      break;
+    }
+
+    case "NullNode": {
+      queryString += `${(astLike as NullNode).column}${SEPARATOR.NULL}${(astLike as NullNode).query}`;
+      break;
+    }
+
+    case "IsNullNode": {
+      queryString += `${(astLike as IsNullNode).column}${SEPARATOR.IS_NULL}${(astLike as IsNullNode).query}`;
       break;
     }
   }
@@ -70,114 +94,6 @@ function mapNodeContainer(astLike: IdNodeBase<unknown>): string {
   return queryString;
 }
 
-function mapAll(astLike: IdNodeBase<unknown>[]): string {
-  let queryString: string = "";
-
-  for (const astLikeItem of astLike) {
-    switch (astLikeItem.id) {
-      case "AndNode": {
-        queryString += mapAll((astLikeItem as AndNode).nodes)
-        break;
-      }
-
-      case "OrNode": {
-        queryString += mapAll((astLikeItem as OrNode).nodes);
-        break;
-      }
-
-      case "GroupNode": {
-        queryString += mapAll((astLikeItem as GroupNode).nodes)
-        break;
-      }
-
-      case "EqualsNode": {
-        queryString += mapEqualsNode(astLikeItem as EqualsNode);
-        break;
-      }
-
-      case "NotEqualsNode": {
-        queryString += mapNotEqualsNode(astLikeItem as NotEqualsNode);
-        break;
-      }
-
-      case "QueryNode": {
-        queryString += mapQueryNode(astLikeItem as QueryNode);
-        break;
-      }
-
-      case "LikeNode": {
-        queryString += mapLikeNode(astLikeItem as LikeNode);
-        break;
-      }
-
-      case "NotLikeNode": {
-        queryString += mapNotLikeNode(astLikeItem as NotLikeNode);
-        break;
-      }
-
-      case "InNode": {
-        queryString += mapInNode(astLikeItem as InNode);
-        break;
-      }
-
-      case "OutNode": {
-        queryString += mapOutNode(astLikeItem as OutNode);
-        break;
-      }
-
-      case "RangeNode": {
-        queryString += mapRangeNode(astLikeItem as RangeNode);
-        break;
-      }
-
-      case "LessNode": {
-        queryString += mapLessNode(astLikeItem as LessNode);
-        break;
-      }
-
-      case "LessOrEqualNode": {
-        queryString += mapLessOrEqualNode(astLikeItem as LessOrEqualNode);
-        break;
-      }
-
-      case "GreaterNode": {
-        queryString += mapGreaterNode(astLikeItem as GreaterNode);
-        break;
-      }
-
-      case "GreaterOrEqualNode": {
-        queryString += mapGreaterOrEqualNode(astLikeItem as GreaterOrEqualNode);
-        break;
-      }
-
-      case "NullNode": {
-        queryString += mapNullNode(astLikeItem as NullNode);
-        break;
-      }
-
-      case "IsNullNode": {
-        queryString += mapIsNullNode(astLikeItem as IsNullNode);
-        break;
-      }
-    }
-  }
-
-  return "";
-}
-
 export {
-  mapEqualsNode,
-  mapNotEqualsNode,
-  mapQueryNode,
-  mapLikeNode,
-  mapNotLikeNode,
-  mapInNode,
-  mapOutNode,
-  mapRangeNode,
-  mapLessNode,
-  mapLessOrEqualNode,
-  mapGreaterNode,
-  mapGreaterOrEqualNode,
-  mapNullNode,
-  mapIsNullNode
+  mapNode
 }
