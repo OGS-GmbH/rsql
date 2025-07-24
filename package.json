@@ -34,6 +34,7 @@
 		"url": "https://github.com/OGS-GmbH/rsql"
 	},
 	"scripts": {
+		"ci:build:main:production": "ng build --configuration production",
 		"ci:pr:commitlint:main:commitlint": "commitlint",
 		"ci:pr:lint:main:eslint": "eslint .",
 		"prepare": "husky",
