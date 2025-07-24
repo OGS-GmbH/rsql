@@ -25,7 +25,7 @@ const DEFAULT_OPERATOR_CONFIG: OperatorValues = {
   EQUALS: "==",
   NOT_EQUALS: "!=",
   QUERY: "=q=",
-  LIKE: "=like=",
+  LIKE: "=lk=",
   NOT_LIKE: "=notlike=",
   IN: "=in=",
   OUT: "=out=",
