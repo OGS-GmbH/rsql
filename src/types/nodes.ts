@@ -15,11 +15,11 @@ interface BooleanLikeQueryNodeBase {
 }
 
 interface NodeContainerBase {
-  nodes: IdNodeBase<unknown>[];
+  nodes: Array<IdNodeBase<unknown>>;
 }
 
-interface IdNodeBase<T extends unknown> {
-  id: T
+interface IdNodeBase<T> {
+  id: T;
 }
 
 interface AndNode extends IdNodeBase<"AndNode">, NodeContainerBase {}
@@ -61,6 +61,11 @@ interface NullNode extends ColumnNodeBase, IdNodeBase<"NullNode">, BooleanLikeQu
 
 interface IsNullNode extends ColumnNodeBase, IdNodeBase<"IsNullNode">, BooleanLikeQueryNodeBase {}
 
+type Node = IdNodeBase<unknown>;
+
+type NodeContainer = NodeContainerBase & IdNodeBase<unknown>;
+
+
 export {
   NodeContainerBase,
   IdNodeBase,
@@ -80,5 +85,7 @@ export {
   GreaterNode,
   GreaterOrEqualNode,
   NullNode,
-  IsNullNode
-}
+  IsNullNode,
+  Node,
+  NodeContainer
+};
