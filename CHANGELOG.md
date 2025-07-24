@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/OGS-GmbH/rsql/compare/v1.1.0...v1.2.0) (2025-07-24)
+
+
+### Features
+
+* change build tool ([6777001](https://github.com/OGS-GmbH/rsql/commit/6777001e219456bc11ed70302107efe52e023f7f))
+* change build tool ([ab35ad8](https://github.com/OGS-GmbH/rsql/commit/ab35ad82cfc165392b6106f7bf2f7b2d6595c81e))
+
 ## [1.1.0](https://github.com/OGS-GmbH/rsql/compare/v1.0.0...v1.1.0) (2025-07-24)
 
 
