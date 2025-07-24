@@ -44,6 +44,10 @@ function getOperators (): Readonly<OperatorValues> {
   return operatorConfig;
 }
 
+/**
+ * Provide custom rsql operators
+ * @param overrides - object with the operators to override
+ */
 function provideOperatorConfig (overrides: OperatorConfig): void {
   operatorConfig = {
     ...DEFAULT_OPERATOR_CONFIG,
