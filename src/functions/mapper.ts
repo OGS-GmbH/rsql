@@ -1,4 +1,4 @@
-import { getSeparator } from "../operators";
+import { getOperators } from "../operators";
 import { AndNode, EqualsNode, GreaterNode, GreaterOrEqualNode, GroupNode, IdNodeBase, InNode, IsNullNode, LessNode, LessOrEqualNode, LikeNode, NotEqualsNode, NotLikeNode, NullNode, OrNode, OutNode, QueryNode, RangeNode } from "../types/nodes";
 
 
@@ -7,13 +7,13 @@ function mapNode (astLike: IdNodeBase<unknown>): string {
 
   switch (astLike.id) {
     case "AndNode": {
-      queryString += (astLike as AndNode).nodes.map((astLikeNode: IdNodeBase<unknown>) => mapNode(astLikeNode)).join(getSeparator().AND);
+      queryString += (astLike as AndNode).nodes.map((astLikeNode: IdNodeBase<unknown>) => mapNode(astLikeNode)).join(getOperators().AND);
 
       break;
     }
 
     case "OrNode": {
-      queryString += (astLike as OrNode).nodes.map((astLikeNode: IdNodeBase<unknown>) => mapNode(astLikeNode)).join(getSeparator().OR);
+      queryString += (astLike as OrNode).nodes.map((astLikeNode: IdNodeBase<unknown>) => mapNode(astLikeNode)).join(getOperators().OR);
 
       break;
     }
@@ -25,85 +25,85 @@ function mapNode (astLike: IdNodeBase<unknown>): string {
     }
 
     case "EqualsNode": {
-      queryString += `${ (astLike as EqualsNode).column }${ getSeparator().EQUALS }${ (astLike as EqualsNode).query }`;
+      queryString += `${ (astLike as EqualsNode).column }${ getOperators().EQUALS }${ (astLike as EqualsNode).query }`;
 
       break;
     }
 
     case "NotEqualsNode": {
-      queryString += `${ (astLike as NotEqualsNode).column }${ getSeparator().NOT_EQUALS }${ (astLike as NotEqualsNode).query }`;
+      queryString += `${ (astLike as NotEqualsNode).column }${ getOperators().NOT_EQUALS }${ (astLike as NotEqualsNode).query }`;
 
       break;
     }
 
     case "QueryNode": {
-      queryString += `${ (astLike as QueryNode).column }${ getSeparator().QUERY }'${ (astLike as QueryNode).query }'}`;
+      queryString += `${ (astLike as QueryNode).column }${ getOperators().QUERY }'${ (astLike as QueryNode).query }'}`;
 
       break;
     }
 
     case "LikeNode": {
-      queryString += `${ (astLike as LikeNode).column }${ getSeparator().LIKE }${ (astLike as LikeNode).query }`;
+      queryString += `${ (astLike as LikeNode).column }${ getOperators().LIKE }${ (astLike as LikeNode).query }`;
 
       break;
     }
 
     case "NotLikeNode": {
-      queryString += `${ (astLike as NotLikeNode).column }${ getSeparator().NOT_LIKE }${ (astLike as NotLikeNode).query }`;
+      queryString += `${ (astLike as NotLikeNode).column }${ getOperators().NOT_LIKE }${ (astLike as NotLikeNode).query }`;
 
       break;
     }
 
     case "InNode": {
-      queryString += `${ (astLike as InNode).column }${ getSeparator().IN }(${ (astLike as InNode).query.join(", ") })`;
+      queryString += `${ (astLike as InNode).column }${ getOperators().IN }(${ (astLike as InNode).query.join(", ") })`;
 
       break;
     }
 
     case "OutNode": {
-      queryString += `${ (astLike as OutNode).column }${ getSeparator().OUT }(${ (astLike as OutNode).query.join(", ") })`;
+      queryString += `${ (astLike as OutNode).column }${ getOperators().OUT }(${ (astLike as OutNode).query.join(", ") })`;
 
       break;
     }
 
     case "RangeNode": {
-      queryString += `${ (astLike as RangeNode).column }${ getSeparator().RANGE }(${ (astLike as RangeNode).queryFrom },${ (astLike as RangeNode).queryTo })`;
+      queryString += `${ (astLike as RangeNode).column }${ getOperators().RANGE }(${ (astLike as RangeNode).queryFrom },${ (astLike as RangeNode).queryTo })`;
 
       break;
     }
 
     case "LessNode": {
-      queryString += `${ (astLike as LessNode).column }${ getSeparator().LESS }${ (astLike as LessNode).query }`;
+      queryString += `${ (astLike as LessNode).column }${ getOperators().LESS }${ (astLike as LessNode).query }`;
 
       break;
     }
 
     case "LessOrEqualNode": {
-      queryString += `${ (astLike as LessOrEqualNode).column }${ getSeparator().LESS_OR_EQUAL }${ (astLike as LessOrEqualNode).query }`;
+      queryString += `${ (astLike as LessOrEqualNode).column }${ getOperators().LESS_OR_EQUAL }${ (astLike as LessOrEqualNode).query }`;
 
       break;
     }
 
     case "GreaterNode": {
-      queryString += `${ (astLike as GreaterNode).column }${ getSeparator().GREATER }${ (astLike as GreaterNode).query }`;
+      queryString += `${ (astLike as GreaterNode).column }${ getOperators().GREATER }${ (astLike as GreaterNode).query }`;
 
       break;
     }
 
     case "GreaterOrEqualNode": {
-      queryString += `${ (astLike as GreaterOrEqualNode).column }${ getSeparator().GREATER_OR_EQUAL }${ (astLike as GreaterOrEqualNode).query }`;
+      queryString += `${ (astLike as GreaterOrEqualNode).column }${ getOperators().GREATER_OR_EQUAL }${ (astLike as GreaterOrEqualNode).query }`;
 
       break;
     }
 
     case "NullNode": {
-      queryString += `${ (astLike as NullNode).column }${ getSeparator().NULL }${ (astLike as NullNode).query }`;
+      queryString += `${ (astLike as NullNode).column }${ getOperators().NULL }${ (astLike as NullNode).query }`;
 
       break;
     }
 
     case "IsNullNode": {
-      queryString += `${ (astLike as IsNullNode).column }${ getSeparator().IS_NULL }${ (astLike as IsNullNode).query }`;
+      queryString += `${ (astLike as IsNullNode).column }${ getOperators().IS_NULL }${ (astLike as IsNullNode).query }`;
 
       break;
     }

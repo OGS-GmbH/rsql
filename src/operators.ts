@@ -1,6 +1,6 @@
-type SeparatorConfig = Partial<SeparatorValues>;
+type OperatorConfig = Partial<OperatorValues>;
 
-interface SeparatorValues {
+interface OperatorValues {
   AND: string;
   OR: string;
   EQUALS: string;
@@ -19,7 +19,7 @@ interface SeparatorValues {
   IS_NULL: string;
 }
 
-const DEFAULT_SEPARATOR_CONFIG: SeparatorValues = {
+const DEFAULT_OPERATOR_CONFIG: OperatorValues = {
   AND: ";",
   OR: ",",
   EQUALS: "==",
@@ -38,22 +38,22 @@ const DEFAULT_SEPARATOR_CONFIG: SeparatorValues = {
   IS_NULL: "=isnull="
 };
 
-let separatorConfig: SeparatorValues = { ...DEFAULT_SEPARATOR_CONFIG };
+let operatorConfig: OperatorValues = { ...DEFAULT_OPERATOR_CONFIG };
 
-function getSeparator (): Readonly<SeparatorValues> {
-  return separatorConfig;
+function getOperators (): Readonly<OperatorValues> {
+  return operatorConfig;
 }
 
-function provideSeparatorConfig (overrides: SeparatorConfig): void {
-  separatorConfig = {
-    ...DEFAULT_SEPARATOR_CONFIG,
+function provideOperatorConfig (overrides: OperatorConfig): void {
+  operatorConfig = {
+    ...DEFAULT_OPERATOR_CONFIG,
     ...overrides
   };
 }
 
 export {
-  provideSeparatorConfig,
-  getSeparator,
-  SeparatorValues,
-  SeparatorConfig
+  provideOperatorConfig,
+  getOperators,
+  OperatorValues,
+  OperatorConfig
 };
