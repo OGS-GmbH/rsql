@@ -15,6 +15,7 @@ function define (definition: Node): DefinitionResult {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function equals (column: string, query: string): EqualsNode {
   return {
     id: "EqualsNode",
@@ -23,6 +24,7 @@ function equals (column: string, query: string): EqualsNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function notEquals (column: string, query: string): NotEqualsNode {
   return {
     id: "NotEqualsNode",
@@ -31,6 +33,7 @@ function notEquals (column: string, query: string): NotEqualsNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function query (column: string, query: string): QueryNode {
   return {
     id: "QueryNode",
@@ -39,6 +42,7 @@ function query (column: string, query: string): QueryNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function like (column: string, query: string): LikeNode {
   return {
     id: "LikeNode",
@@ -47,6 +51,7 @@ function like (column: string, query: string): LikeNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function iin (column: string, query: string[]): InNode {
   return {
     id: "InNode",
@@ -55,6 +60,7 @@ function iin (column: string, query: string[]): InNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function out (column: string, query: string[]): OutNode {
   return {
     id: "OutNode",
@@ -72,6 +78,7 @@ function range (column: string, from: string, to: string): RangeNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function notLike (column: string, query: string): NotLikeNode {
   return {
     id: "NotLikeNode",
@@ -80,6 +87,7 @@ function notLike (column: string, query: string): NotLikeNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function less (column: string, query: string): LessNode {
   return {
     id: "LessNode",
@@ -88,6 +96,7 @@ function less (column: string, query: string): LessNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function lessOrEqual (column: string, query: string): LessOrEqualNode {
   return {
     id: "LessOrEqualNode",
@@ -96,6 +105,7 @@ function lessOrEqual (column: string, query: string): LessOrEqualNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function greater (column: string, query: string): GreaterNode {
   return {
     id: "GreaterNode",
@@ -104,6 +114,7 @@ function greater (column: string, query: string): GreaterNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function greaterOrEqual (column: string, query: string): GreaterOrEqualNode {
   return {
     id: "GreaterOrEqualNode",
@@ -112,6 +123,7 @@ function greaterOrEqual (column: string, query: string): GreaterOrEqualNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function nnull (column: string, query: boolean): NullNode {
   return {
     id: "NullNode",
@@ -120,6 +132,7 @@ function nnull (column: string, query: boolean): NullNode {
   };
 }
 
+// eslint-disable-next-line @tseslint/no-shadow
 function isNull (column: string, query: boolean): IsNullNode {
   return {
     id: "IsNullNode",
