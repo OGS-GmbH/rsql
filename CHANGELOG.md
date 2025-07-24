@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/OGS-GmbH/rsql/compare/v1.0.0...v1.1.0) (2025-07-24)
+
+
+### Features
+
+* change operator ([f97156a](https://github.com/OGS-GmbH/rsql/commit/f97156a57b8c74bd195f974da2718dc11a0267ba))
+* change operator ([8e841ce](https://github.com/OGS-GmbH/rsql/commit/8e841ce7f8e8496275c131dad79c052c3fd8e65f))
+
 ## 1.0.0 (2025-07-24)
 
 
