@@ -14,8 +14,8 @@
 		"zero-dependency",
 		"lightweight"
 	],
-	"homepage": "https://github.com/OGS-GmbH/ngx-translate?tab=readme-ov-file",
-	"bugs": "https://github.com/OGS-GmbH/ngx-translate/issues",
+	"homepage": "https://github.com/OGS-GmbH/rsql?tab=readme-ov-file",
+	"bugs": "https://github.com/OGS-GmbH/rsql/issues",
 	"license": "MIT",
 	"author": "OGS GmbH",
 	"contributors": [
@@ -33,11 +33,6 @@
 		"type": "git",
 		"url": "https://github.com/OGS-GmbH/rsql"
 	},
-	"main": "dist/public-api.js",
-	"types": "dist/public-api.d.ts",
-	"files": [
-		"dist"
-	],
 	"scripts": {
 		"ci:pr:commitlint:main:commitlint": "commitlint",
 		"ci:pr:lint:main:eslint": "eslint .",
