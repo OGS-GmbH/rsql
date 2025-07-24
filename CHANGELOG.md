@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/OGS-GmbH/rsql/compare/v1.2.0...v1.2.1) (2025-07-24)
+
+
+### Bug Fixes
+
+* add dependency needed by build-tool ([2970934](https://github.com/OGS-GmbH/rsql/commit/29709341029917173b739692488a28fee38e2b89))
+* install dependencies ([eb2220f](https://github.com/OGS-GmbH/rsql/commit/eb2220fc1658b2699d018fac3ce982a276237ed3))
+
 ## [1.2.0](https://github.com/OGS-GmbH/rsql/compare/v1.1.0...v1.2.0) (2025-07-24)
 
 
