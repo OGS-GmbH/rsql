@@ -1,6 +1,6 @@
 {
 	"name": "@ogs-gmbh/rsql",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"description": "Lightweight, zero-dependency TypeScript library for constructing and serializing RSQL queries using customizable operators",
 	"keywords": [
 		"rsql",
@@ -76,7 +76,7 @@
 		"typescript-eslint": "^8.34.0"
 	},
 	"sideEffects": false,
-		"publishConfig": {
+	"publishConfig": {
 		"directory": "dist/prod"
 	}
 }

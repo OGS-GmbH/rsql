@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/OGS-GmbH/rsql/compare/v1.2.1...v1.2.2) (2025-07-25)
+
+
+### Bug Fixes
+
+* **ci:** build declaration-files as well ([ac60377](https://github.com/OGS-GmbH/rsql/commit/ac603774962adb9b10b2340e35e391fc331ea898))
+
 ## [1.2.1](https://github.com/OGS-GmbH/rsql/compare/v1.2.0...v1.2.1) (2025-07-24)
 
 
