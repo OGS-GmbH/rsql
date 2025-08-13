@@ -13,7 +13,7 @@ function mapNode (astLike: IdNodeBase<unknown>): string {
     }
 
     case "OrNode": {
-      queryString += (astLike as OrNode).nodes.map((astLikeNode: IdNodeBase<unknown>) => mapNode(astLikeNode)).join(getOperators().OR);
+      queryString += `(${ (astLike as OrNode).nodes.map((astLikeNode: IdNodeBase<unknown>) => mapNode(astLikeNode)).join(getOperators().OR) })`;
 
       break;
     }
