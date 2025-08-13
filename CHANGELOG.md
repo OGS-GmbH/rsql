@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/OGS-GmbH/rsql/compare/v1.2.2...v1.2.3) (2025-08-13)
+
+
+### Bug Fixes
+
+* change or mapping to be clasped ([aba3290](https://github.com/OGS-GmbH/rsql/commit/aba329049de3367aedd0097226fa2762d1813e49))
+
 ## [1.2.2](https://github.com/OGS-GmbH/rsql/compare/v1.2.1...v1.2.2) (2025-07-25)
 
 
