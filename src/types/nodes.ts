@@ -61,6 +61,11 @@ interface NullNode extends ColumnNodeBase, IdNodeBase<"NullNode">, BooleanLikeQu
 
 interface IsNullNode extends ColumnNodeBase, IdNodeBase<"IsNullNode">, BooleanLikeQueryNodeBase {}
 
+interface CustomOperatorNode<T = string> extends ColumnNodeBase, IdNodeBase<"CustomOperatorNode"> {
+  operator: string;
+  query: T;
+}
+
 type Node = IdNodeBase<unknown>;
 
 type NodeContainer = NodeContainerBase & IdNodeBase<unknown>;
@@ -87,5 +92,6 @@ export {
   NullNode,
   IsNullNode,
   Node,
-  NodeContainer
+  NodeContainer,
+  CustomOperatorNode
 };

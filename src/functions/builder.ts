@@ -1,6 +1,6 @@
 import { mapNode } from "./mapper";
 // eslint-disable-next-line @tseslint/no-shadow
-import { EqualsNode, GreaterNode, GreaterOrEqualNode, IdNodeBase, InNode, LessNode, LessOrEqualNode, LikeNode, NotEqualsNode, NotLikeNode, NullNode, IsNullNode, OutNode, QueryNode, RangeNode, AndNode, OrNode, GroupNode, Node, NodeContainer } from "../types/nodes";
+import { EqualsNode, GreaterNode, GreaterOrEqualNode, IdNodeBase, InNode, LessNode, LessOrEqualNode, LikeNode, NotEqualsNode, NotLikeNode, NullNode, IsNullNode, OutNode, QueryNode, RangeNode, AndNode, OrNode, GroupNode, Node, NodeContainer, CustomOperatorNode } from "../types/nodes";
 
 interface DefinitionResult {
   ast: IdNodeBase<unknown>;
@@ -162,6 +162,16 @@ function group (astLike: NodeContainer): GroupNode {
   };
 }
 
+
+function custom<T> (column: string, operator: string, queryString: T): CustomOperatorNode<T> {
+  return {
+    id: "CustomOperatorNode",
+    column,
+    operator,
+    query: queryString
+  };
+}
+
 export {
   define,
   equals,
@@ -180,5 +190,6 @@ export {
   isNull,
   and,
   or,
-  group
+  group,
+  custom
 };

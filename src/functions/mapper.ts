@@ -1,5 +1,5 @@
 import { getOperators } from "../operators";
-import { AndNode, EqualsNode, GreaterNode, GreaterOrEqualNode, GroupNode, IdNodeBase, InNode, IsNullNode, LessNode, LessOrEqualNode, LikeNode, NotEqualsNode, NotLikeNode, NullNode, OrNode, OutNode, QueryNode, RangeNode } from "../types/nodes";
+import { AndNode, EqualsNode, GreaterNode, GreaterOrEqualNode, GroupNode, IdNodeBase, InNode, IsNullNode, LessNode, LessOrEqualNode, LikeNode, NotEqualsNode, NotLikeNode, NullNode, OrNode, OutNode, QueryNode, RangeNode, CustomOperatorNode } from "../types/nodes";
 
 
 function mapNode (astLike: IdNodeBase<unknown>): string {
@@ -104,6 +104,12 @@ function mapNode (astLike: IdNodeBase<unknown>): string {
 
     case "IsNullNode": {
       queryString += `${ (astLike as IsNullNode).column }${ getOperators().IS_NULL }${ (astLike as IsNullNode).query }`;
+
+      break;
+    }
+
+    case "CustomOperatorNode": {
+      queryString += `${ (astLike as CustomOperatorNode).column }${ (astLike as CustomOperatorNode).operator }${ (astLike as CustomOperatorNode).query }`;
 
       break;
     }
