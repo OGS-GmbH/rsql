@@ -1,5 +1,5 @@
 import { AndNode, EqualsNode, GreaterNode, GreaterOrEqualNode, GroupNode, IdNodeBase, InNode, IsNullNode, LessNode, LessOrEqualNode, LikeNode, NotEqualsNode, NotLikeNode, NullNode, OrNode, OutNode, QueryNode, RangeNode } from "./nodes";
-import { customOperatorRegistry, type CustomOperatorDefinition, type CustomOperatorNode } from "./custom-operators";
+import { customOperatorRegistry, type CustomOperatorDefinition, type CustomOperatorNode } from "./custom";
 import { AND, OR, SEPARATOR } from "./operators";
 
 function mapNode (astLike: IdNodeBase<unknown>): string {
@@ -109,12 +109,12 @@ function mapNode (astLike: IdNodeBase<unknown>): string {
     }
 
     default: {
-      const customOperatorDefinition = customOperatorRegistry.get(astLike.id as string);
+      const customOperatorDefinition: CustomOperatorDefinition<unknown> | undefined = customOperatorRegistry.get(astLike.id as string);
 
       if (customOperatorDefinition === undefined)
         throw new Error(`Operator with id '${ astLike.id as string }' is not known. If it is a custom operator, make sure to register it first.`);
 
-      queryString += customOperatorDefinition.toString(astLike as CustomOperatorNode<unknown>);
+      queryString += customOperatorDefinition.toString((astLike as CustomOperatorNode<unknown>).data);
 
       break;
     }

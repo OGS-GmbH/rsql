@@ -9,20 +9,21 @@ interface CustomOperatorDefinition<Data> {
   toString: (data: Data) => string;
 }
 
-function createCustomOperator<Data> (definition: CustomOperatorDefinition<Data>) {
-  customOperatorRegistry.add(definition);
-
-  return (data: Data): CustomOperatorNode<unknown> => {
-    return {
-      id: definition.id,
-      data: data
-    }
-  }
+interface CustomOperatorRegistry {
+  // eslint-disable-next-line @tseslint/prefer-readonly-parameter-types
+  add: <Data>(definition: CustomOperatorDefinition<Data>) => this;
+  get: <Data = unknown>(id: string) => CustomOperatorDefinition<Data> | undefined;
+  getAll: () => Map<string, CustomOperatorDefinition<unknown>>;
+  has: (id: string) => boolean;
+  removeAll: () => void;
+  remove: (id: string) => boolean;
 }
 
+
 const _registryMap: Map<string, CustomOperatorDefinition<unknown>> = new Map<string, CustomOperatorDefinition<unknown>>();
-const customOperatorRegistry = {
-  add<Data>(definition: CustomOperatorDefinition<Data>) {
+const customOperatorRegistry: CustomOperatorRegistry = {
+  // eslint-disable-next-line @tseslint/prefer-readonly-parameter-types
+  add<Data>(definition: CustomOperatorDefinition<Data>): CustomOperatorRegistry {
     if (customOperatorRegistry.has(definition.id))
       throw new Error(`Custom operator with id '${ definition.id }' already exists`);
 
@@ -34,7 +35,7 @@ const customOperatorRegistry = {
   get<Data>(id: string): CustomOperatorDefinition<Data> | undefined {
     const definition: CustomOperatorDefinition<Data> | undefined = _registryMap.get(id);
 
-    return definition as CustomOperatorDefinition<Data> | undefined;
+    return definition;
   },
 
   getAll (): Map<string, CustomOperatorDefinition<unknown>> {
@@ -54,12 +55,23 @@ const customOperatorRegistry = {
   }
 };
 
+
+// eslint-disable-next-line @tseslint/prefer-readonly-parameter-types
+function createCustomOperator<Data> (definition: CustomOperatorDefinition<Data>) {
+  customOperatorRegistry.add(definition);
+
+  return (data: Data): CustomOperatorNode<Data> => ({
+    id: definition.id,
+    data
+  });
+}
+
 export type {
-  createCustomOperator,
   CustomOperatorNode,
   CustomOperatorDefinition
 };
 export {
+  createCustomOperator,
   customOperatorRegistry
 };
 
