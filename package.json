@@ -36,13 +36,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./public-api.d.ts",
-      "default": "./public-api.mjs"
+      "types": "./rsql/public-api.d.ts",
+      "default": "./rsql/public-api.mjs"
     }
   },
   "scripts": {
     "ci:build:main:production": "node .esbuild/prod.mjs",
-    "lint": "eslint .",
+    "ci:pr:lint:main:eslint": "eslint .",
     "commitizen": "cz"
   },
   "devDependencies": {
