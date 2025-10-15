@@ -42,6 +42,7 @@
   },
   "scripts": {
     "ci:build:main:production": "node .esbuild/prod.mjs",
+    "ci:pr:commitlint:main:commitlint": "commitlint",
     "ci:pr:lint:main:eslint": "eslint .",
     "commitizen": "cz"
   },
