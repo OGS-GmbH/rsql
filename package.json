@@ -35,10 +35,12 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/public-api.d.ts",
-      "default": "./dist/public-api.mjs"
+      "types": "public-api.d.ts",
+      "default": "public-api.mjs"
     }
   },
+  "main": "public-api.mjs",
+  "types": "public-api.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/OGS-GmbH/rsql"
@@ -78,5 +80,8 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "publishConfig": {
+    "directory": "dist"
+  }
 }

@@ -28,6 +28,10 @@ const getConfig = (pathToDist) => ({
         {
           from: "CHANGELOG.md",
           to: `${ pathToDist }/CHANGELOG.md`
+        },
+        {
+          from: "LICENSE",
+          to: `${ pathToDist }/LICENSE`
         }
       ],
       globs: [
