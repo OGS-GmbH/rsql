@@ -55,7 +55,6 @@ const customOperatorRegistry: CustomOperatorRegistry = {
   }
 };
 
-
 // eslint-disable-next-line @tseslint/prefer-readonly-parameter-types
 function createCustomOperator<Data> (definition: CustomOperatorDefinition<Data>) {
   customOperatorRegistry.add(definition);
