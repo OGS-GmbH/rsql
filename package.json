@@ -33,21 +33,22 @@
       "email": "iwenneck@gmail.com"
     }
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/public-api.d.ts",
+      "default": "./dist/public-api.mjs"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/OGS-GmbH/rsql"
   },
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./public-api.d.ts",
-      "default": "./public-api.mjs"
-    }
-  },
   "scripts": {
     "ci:build:main:production": "node .esbuild/build.mjs",
+    "ci:pr:commitlint:main:commitlint": "commitlint",
     "ci:pr:lint:main:eslint": "eslint .",
-    "ci:pr:lint:main:commitizen": "cz"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -77,8 +78,5 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.0"
   },
-  "sideEffects": false,
-  "publishConfig": {
-    "directory": "dist/prod"
-  }
+  "sideEffects": false
 }
