@@ -14,7 +14,7 @@
     "zero-dependency",
     "lightweight"
   ],
-  "homepage": "https://github.com/OGS-GmbH/rsql?tab=readme-ov-file",
+  "homepage": "https://github.com/OGS-GmbH/rsql",
   "bugs": "https://github.com/OGS-GmbH/rsql/issues",
   "license": "MIT",
   "author": "OGS GmbH",
@@ -27,6 +27,10 @@
     {
       "name": "Elie Soueid",
       "email": "eliegebransoued@gmail.com"
+    },
+    {
+      "name": "Ian Wenneckers",
+      "email": "iwenneck@gmail.com"
     }
   ],
   "repository": {
@@ -41,9 +45,9 @@
     }
   },
   "scripts": {
-    "ci:build:main:production": "node .esbuild/prod.mjs",
-    "lint": "eslint .",
-    "commitizen": "cz"
+    "ci:build:main:production": "node .esbuild/build.mjs",
+    "ci:pr:lint:main:eslint": "eslint .",
+    "ci:pr:lint:main:commitizen": "cz"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

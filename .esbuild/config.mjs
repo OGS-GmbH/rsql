@@ -38,8 +38,7 @@ const getConfig = (pathToDist) => ({
       ]
     }),
     dts({
-      tsconfig: "tsconfig.build.json"
-
+      tsconfig: "tsconfig.json"
     })
   ]
 });
