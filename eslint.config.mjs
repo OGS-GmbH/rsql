@@ -2,7 +2,7 @@ import {
   ESLINT_JSON_RULES,
   ESLINT_MARKDOWN_RULES,
   JS_RULES_PRESET,
-  TS_RULES_PRESET,
+  TS_RULES_PRESET
 } from "@ogs-gmbh/linter";
 import eslintJson from "@eslint/json";
 import eslintMarkdown from "@eslint/markdown";
@@ -22,8 +22,8 @@ export default tseslint.config(
       "@stylistic/ts": stylisticTs,
       "@stylistic/plus": stylisticPlus,
       "@markdown": eslintMarkdown,
-      "@json": eslintJson,
-    },
+      "@json": eslintJson
+    }
   },
   {
     ignores: [
@@ -34,42 +34,42 @@ export default tseslint.config(
       "node_modules",
       "dist",
       "CHANGELOG.md",
-      "README.md",
-    ],
+      "README.md"
+    ]
   },
   {
-    files: ["**/*.ts"],
+    files: [ "**/*.ts" ],
     languageOptions: {
       parser: tseslint.parser,
       globals: globals.browser,
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
+        tsconfigRootDir: import.meta.dirname
+      }
     },
-    rules: TS_RULES_PRESET,
+    rules: TS_RULES_PRESET
   },
   {
-    files: ["**/*.js", "**/*.mjs", "**/*.cjs"],
-    rules: JS_RULES_PRESET,
+    files: [ "**/*.js", "**/*.mjs", "**/*.cjs" ],
+    rules: JS_RULES_PRESET
   },
   {
-    files: ["**/*.md"],
-    rules: ESLINT_MARKDOWN_RULES,
+    files: [ "**/*.md" ],
+    rules: ESLINT_MARKDOWN_RULES
   },
   {
-    files: ["**/*.json"],
+    files: [ "**/*.json" ],
     language: "@json/json",
-    rules: ESLINT_JSON_RULES,
+    rules: ESLINT_JSON_RULES
   },
   {
-    files: ["**/*.json5"],
+    files: [ "**/*.json5" ],
     language: "@json/json5",
-    rules: ESLINT_JSON_RULES,
+    rules: ESLINT_JSON_RULES
   },
   {
-    files: ["**/*.jsonc"],
+    files: [ "**/*.jsonc" ],
     language: "@json/jsonc",
-    rules: ESLINT_JSON_RULES,
+    rules: ESLINT_JSON_RULES
   }
 );
