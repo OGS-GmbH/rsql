@@ -86,6 +86,7 @@ importers:
       typescript-eslint:
         specifier: ^8.34.0
         version: 8.45.0(eslint@9.36.0(jiti@2.6.0))(typescript@5.8.3)
+    publishDirectory: dist
 
 packages:
 
