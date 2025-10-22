@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/OGS-GmbH/rsql/compare/v1.4.0...v1.4.1) (2025-10-22)
+
+
+### Bug Fixes
+
+* let publish dir point to dist ([cb38fcb](https://github.com/OGS-GmbH/rsql/commit/cb38fcbb8c5af090305c3cf8c6d5c4969036de50))
+
 ## [1.4.0](https://github.com/OGS-GmbH/rsql/compare/v1.3.1...v1.4.0) (2025-10-22)
 
 
