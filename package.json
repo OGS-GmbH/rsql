@@ -35,8 +35,8 @@
   ],
   "exports": {
     ".": {
-      "types": "public-api.d.ts",
-      "default": "public-api.mjs"
+      "types": "./public-api.d.ts",
+      "default": "./public-api.mjs"
     }
   },
   "main": "public-api.mjs",
