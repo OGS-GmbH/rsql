@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/OGS-GmbH/rsql/compare/v1.4.1...v1.5.0) (2025-10-23)
+
+
+### Features
+
+* force deploy ([e8f17c1](https://github.com/OGS-GmbH/rsql/commit/e8f17c19ceabe1d74f732d262647aa2cafa65505))
+
 ## [1.4.1](https://github.com/OGS-GmbH/rsql/compare/v1.4.0...v1.4.1) (2025-10-22)
 
 
