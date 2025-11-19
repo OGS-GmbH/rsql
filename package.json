@@ -34,13 +34,12 @@
     }
   ],
   "exports": {
-    ".": {
-      "types": "./public-api.d.ts",
-      "default": "./public-api.mjs"
-    }
+    "types": "./public-api.d.ts",
+    "import": "./public-api.mjs",
+    "default": "./public-api.mjs"
   },
-  "main": "public-api.mjs",
-  "types": "public-api.d.ts",
+  "main": "./public-api.mjs",
+  "types": "./public-api.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/OGS-GmbH/rsql"
