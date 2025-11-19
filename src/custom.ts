@@ -6,23 +6,21 @@ interface CustomOperatorNode<Data> extends IdNodeBase<string> {
 
 interface CustomOperatorDefinition<Data> {
   id: string;
-  toString: (data: Data) => string;
+  toString(data: Data): string;
 }
 
 interface CustomOperatorRegistry {
-  // eslint-disable-next-line @tseslint/prefer-readonly-parameter-types
-  add: <Data>(definition: CustomOperatorDefinition<Data>) => this;
-  get: <Data = unknown>(id: string) => CustomOperatorDefinition<Data> | undefined;
-  getAll: () => Map<string, CustomOperatorDefinition<unknown>>;
-  has: (id: string) => boolean;
-  removeAll: () => void;
-  remove: (id: string) => boolean;
+  add<Data>(definition: CustomOperatorDefinition<Data>): this;
+  get<Data = unknown>(id: string): CustomOperatorDefinition<Data> | undefined;
+  getAll(): Map<string, CustomOperatorDefinition<unknown>>;
+  has(id: string): boolean;
+  removeAll(): void;
+  remove(id: string): boolean;
 }
 
 
 const _registryMap: Map<string, CustomOperatorDefinition<unknown>> = new Map<string, CustomOperatorDefinition<unknown>>();
 const customOperatorRegistry: CustomOperatorRegistry = {
-  // eslint-disable-next-line @tseslint/prefer-readonly-parameter-types
   add<Data>(definition: CustomOperatorDefinition<Data>): CustomOperatorRegistry {
     if (customOperatorRegistry.has(definition.id))
       throw new Error(`Custom operator with id '${ definition.id }' already exists`);
@@ -55,7 +53,6 @@ const customOperatorRegistry: CustomOperatorRegistry = {
   }
 };
 
-// eslint-disable-next-line @tseslint/prefer-readonly-parameter-types
 function createCustomOperator<Data> (definition: CustomOperatorDefinition<Data>) {
   customOperatorRegistry.add(definition);
 
