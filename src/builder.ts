@@ -3,7 +3,7 @@ import { EqualsNode, GreaterNode, GreaterOrEqualNode, IdNodeBase, InNode, LessNo
 
 interface DefinitionResult {
   ast: IdNodeBase<unknown>;
-  toString: () => string;
+  toString(): string;
 }
 
 type Node = IdNodeBase<unknown>;
