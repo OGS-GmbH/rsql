@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.6.0](https://github.com/OGS-GmbH/rsql/compare/v1.5.0...v1.6.0) (2025-11-19)
+
+
+### Features
+
+* add custom operator api ([e9bb89f](https://github.com/OGS-GmbH/rsql/commit/e9bb89f14fd1c7f9b394f68ac0a548129dcd8b87))
+* **ast:** improved mapping and type safety ([a183602](https://github.com/OGS-GmbH/rsql/commit/a183602e9b4eecb84f0f3fa647576d6e1d27c687))
+* force deploy ([a26d740](https://github.com/OGS-GmbH/rsql/commit/a26d740f93db381060fc7bd35cc13bc8bba0af87))
+* init ([07ed441](https://github.com/OGS-GmbH/rsql/commit/07ed4417cbb0382fece41ba6db2b8707150504fd))
+
+
+### Bug Fixes
+
+* expose custom operator api ([9accaa7](https://github.com/OGS-GmbH/rsql/commit/9accaa769cdc6e692d2ae0bacfcad7d02d1ea920))
+* let publish dir point to dist ([88dba65](https://github.com/OGS-GmbH/rsql/commit/88dba6518267cfa7bb028340659fefd0ff885d3b))
+
 ## [1.5.0](https://github.com/OGS-GmbH/rsql/compare/v1.4.1...v1.5.0) (2025-10-23)
 
 

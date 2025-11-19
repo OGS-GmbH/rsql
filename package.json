@@ -1,6 +1,6 @@
 {
   "name": "@ogs-gmbh/rsql",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Lightweight, zero-dependency TypeScript library for constructing and serializing RSQL queries using customizable operators",
   "keywords": [
     "rsql",
