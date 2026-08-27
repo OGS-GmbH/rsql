@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["jsdoc", "import", "typescript"],
+  "extends": [
+    "./node_modules/@ogs-gmbh/oxlint-presets/eslint-recommended.json",
+    "./node_modules/@ogs-gmbh/oxlint-presets/jsdoc-recommended.json",
+    "./node_modules/@ogs-gmbh/oxlint-presets/typescript-recommended.json",
+    "./node_modules/@ogs-gmbh/oxlint-presets/oxc-recommended.json",
+    "./node_modules/@ogs-gmbh/oxlint-presets/promise-recommended.json",
+    "./node_modules/@ogs-gmbh/oxlint-presets/unicorn-recommended.json",
+    "./node_modules/@ogs-gmbh/oxlint-presets/import-recommended.json"
+  ]
+}

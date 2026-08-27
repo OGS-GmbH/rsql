@@ -1,15 +1,9 @@
-name: PR Review
+name: PR review
 on:
   pull_request:
-    types: [
-      opened,
-      reopened,
-      synchronize
-    ]
+    types: [opened, reopened, synchronize]
   workflow_dispatch:
 
 jobs:
-  call-npm-package-pr-checks:
-    uses: OGS-GmbH/reusable-github-actions/.github/workflows/npm-package-pr-checks.yml@main
-    secrets:
-      FONTAWESOME_REGISTRY_AUTH_TOKEN: ${{ secrets.FONTAWESOME_REGISTRY_AUTH_TOKEN }}
+  call-npm-package-pr-commits:
+    uses: OGS-GmbH/reusable-github-actions/.github/workflows/npm-package-pr-checks.yml@v2.0.0
