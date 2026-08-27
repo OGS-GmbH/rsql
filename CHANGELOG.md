@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/OGS-GmbH/rsql/compare/v1.4.0...v2.0.0) (2026-08-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* create functional api
+
+### Features
+
+* create functional api ([68bd214](https://github.com/OGS-GmbH/rsql/commit/68bd2146017f98d2a7c5b0e5da582cf681680b9e))
+
 ## [1.4.0](https://github.com/OGS-GmbH/rsql/compare/v1.3.1...v1.4.0) (2025-10-22)
 
 
